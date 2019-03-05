@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="person"></ion-icon>&nbsp;Name
+    </ion-label>
+    <ion-input [(ngModel)]="review.name" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="mail"></ion-icon>&nbsp;Email
+    </ion-label>
+    <ion-input [(ngModel)]="review.email" type="email"></ion-input>
+  </ion-item>
+  <div text-center margin-top>
+    <span *ngFor="let s of stars">
+      <ion-icon (click)="setRating(s)" name="star" [ngClass]="{'star-on': (review.rate >= s) == true}" class="star-off"></ion-icon>
+    </span>
+  </div>
+  <ion-item>
+    <ion-label position="floating">
+      <ion-icon name="pricetags"></ion-icon>&nbsp;Comment
+    </ion-label>
+    <ion-textarea [(ngModel)]="review.comment"></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" fill="outline" color="success" margin-top (click)="addReview()">Add review</ion-button>
+</ion-content>

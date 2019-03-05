@@ -1,24 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestsService } from '../providers/requests.service';
-import { NavController } from '@ionic/angular';
-import { ReviewsPage } from '../reviews/reviews.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-reviews',
+  templateUrl: './reviews.component.html',
+  styleUrls: ['./reviews.component.scss'],
 })
-export class HomePage implements OnInit {
-  reviews: any = [];
-  isLoading: boolean;
+export class ReviewsPage implements OnInit {
+isLoading : boolean;
+reviews: any = [];
 
-  constructor(private requests: RequestsService, private navCtrl: NavController) {
-
-  }
-
-  click(page) {
-    this.navCtrl.navigateRoot(page);
-  }
+  constructor(private requests: RequestsService) { }
 
   ngOnInit() {
     this.isLoading = true;
@@ -31,5 +23,5 @@ export class HomePage implements OnInit {
       this.isLoading = false;
     })
   }  
-}
 
+}
